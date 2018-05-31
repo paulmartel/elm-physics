@@ -8,6 +8,7 @@ module Physics.Body
         , tick
         , body
         , setMass
+        , getNextShapeId
         , addShape
         )
 
@@ -101,6 +102,12 @@ setQuaternion quaternion body =
     updateMassProperties
         { body | quaternion = quaternion }
 
+
+{-| Predict the shape id of the next shape to be added
+-}
+getNextShapeId : Body -> ShapeId
+getNextShapeId body =
+    body.nextShapeId
 
 addShape : Shape -> Body -> Body
 addShape shape body =
